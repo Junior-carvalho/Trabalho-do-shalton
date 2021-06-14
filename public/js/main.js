@@ -5,10 +5,15 @@ var numPalavras = frase.split(" ") .length;
 var tamanhoFrase = $("#tamanho-frase");
 tamanhoFrase.text(numPalavras);
 }
-
-var tempoInicial = $("#tempo-digitacao").text();
 var campo = $(".campo-digitacao");
-
+var tempoInicial = $("#tempo-digitacao").text();
+$(function(){
+    atualizaTamanhoFrase();
+    inicializaContadores();
+    inicializaCronometro();
+    $("#botao-reiniciar").click(reiniciaJogo);
+   });
+   
 function inicializaContadores() {
 campo.on("input", function() {
 
@@ -37,18 +42,17 @@ function inicializaCronometro() {
         }, 1000);
    });
 }
-    $("#botao-reiniciar").click(reiniciaJogo);
-   $("#botao-reiniciar").click(function(){
-    function reiniciaJogo(){
-
-    campo.attr("disabled", false);
-    campo.val("");
-    $("#contador-palavras").text("0");
-    $("#contador-caracteres").text("0");
-    $("#tempo-digitacao").text(tempoInicial); 
-    inicializaCronometro(); 
-    }
-   });
 
    
-   
+$("#botao-reiniciar").click(reiniciaJogo);
+$("#botao-reiniciar").click(function(){
+});
+ function reiniciaJogo(){
+
+ campo.attr("disabled", false);
+ campo.val("");
+ $("#contador-palavras").text("0");
+ $("#contador-caracteres").text("0");
+ $("#tempo-digitacao").text(tempoInicial); 
+ inicializaCronometro(); 
+ }
