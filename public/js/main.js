@@ -26,6 +26,14 @@ var conteudoSemEspaco = conteudo.replace(/\s+/g,'');
 var qtdCaracteres = conteudoSemEspaco.length;
  $('#contador-caracteres').text(qtdCaracteres);
 });
+function reiniciaJogo() {
+
+if (tempoRestante < 1) {
+    campo.attr("disabled", true);
+    clearInterval(cronometroID);
+    campo.toggleClass("campo-desativado"); //novo
+    }
+   }
 }
 
 function inicializaCronometro() {
