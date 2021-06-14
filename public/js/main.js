@@ -12,3 +12,16 @@ $("#contador-palavras").text(qtdPalavras) .text(qtdCaracteres);
 var conteudoSemEspaco = conteudo.replace(/\s+/g,'');
 var qtdCaracteres = conteudoSemEspaco.length;
  $('#contador-caracteres').text(qtdCaracteres);
+ var tempoRestante = $("#tempo-digitacao").text();
+ campo.one("focus", function() {
+    var cronometroID = setInterval(function() {
+        tempoRestante--;
+        $("#tempo-digitacao").text(tempoRestante);
+        if (tempoRestante < 1) {
+            campo.attr("disabled", true);
+            clearInterval(cronometroID);
+            }
+
+        }, 1000);
+   });
+   
