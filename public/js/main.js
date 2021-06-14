@@ -28,7 +28,7 @@ var qtdCaracteres = conteudoSemEspaco.length;
  $('#contador-caracteres').text(qtdCaracteres);
 });
 function reiniciaJogo() {
-
+    
 if (tempoRestante < 1) {
     campo.attr("disabled", true);
     clearInterval(cronometroID);
@@ -88,10 +88,15 @@ $("#botao-reiniciar").click(function(){
     var corpoTabela = $(".placar").find("tbody");
     var usuario = "Seu-nome";
     var numPalavras = $("#contador-palavras").text();
-    var linha = novaLinha();
+    var linha = novaLinha(usuario, numPalavras);
+    corpoTabela.append(linha);
    }
    function novaLinha(usuario, numPalavras) {
     var linha = $("<tr>");
     var colunaUsuario = $("<td>").text(usuario);
     var colunaPalavras = $("<td>").text(numPalavras);
+    <tr>
+    <td>linha.append(colunaUsuario);</td>
+    <td>linha.append(colunaPalavras);</td>
+    </tr>
 }
