@@ -3,6 +3,8 @@ var frase = $(".frase").text();
 var numPalavras = frase.split(" ") .length;
 var tamanhoFrase = $("#tamanho-frase");
 tamanhoFrase.text(numPalavras);
+var tempoInicial = $("#tempo-digitacao").text();
+
 var campo = $(".campo-digitacao");
 campo.on("input", function() {
 });
@@ -24,4 +26,12 @@ var qtdCaracteres = conteudoSemEspaco.length;
 
         }, 1000);
    });
+   $("#botao-reiniciar").click(function(){
+    campo.attr("disabled", false);
+    campo.val("");
+    $("#contador-palavras").text("0");
+    $("#contador-caracteres").text("0");
+    $("#tempo-digitacao").text(tempoInicial); 
+   });
+   
    
