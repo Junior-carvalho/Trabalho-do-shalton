@@ -95,8 +95,5 @@ $("#botao-reiniciar").click(function(){
     var linha = $("<tr>");
     var colunaUsuario = $("<td>").text(usuario);
     var colunaPalavras = $("<td>").text(numPalavras);
-    <tr>
-    <td>linha.append(colunaUsuario);</td>
-    <td>linha.append(colunaPalavras);</td>
-    </tr>
+
 }
