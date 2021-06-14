@@ -72,15 +72,26 @@ $("#botao-reiniciar").click(function(){
  function inicializaMarcadores() {
     var frase = $(".frase").text();
     campo.on("input", function() {
-    //aqui vem mais
+        var digitado = campo.val();
+        var comparavel = frase.substr(0 , digitado.length);
+        if(digitado == comparavel) {
+            campo.addClass("borda-verde");
+            campo.removeClass("borda-vermelha");
+           } else {
+            campo.addClass("borda-vermelha");
+            campo.removeClass("borda-verde");
+           }
     });
+   }   
+   
+   function inserePlacar(){
+    var corpoTabela = $(".placar").find("tbody");
+    var usuario = "Seu-nome";
+    var numPalavras = $("#contador-palavras").text();
+    var linha = novaLinha();
    }
-   var digitado = campo.val();   
-   var comparavel = frase.substr(0 , digitado.length);
-   if(digitado == comparavel) {
-    campo.addClass("borda-verde");
-    campo.removeClass("borda-vermelha");
-   } else {
-    campo.addClass("borda-vermelha");
-    campo.removeClass("borda-verde");
-   }
+   function novaLinha(usuario, numPalavras) {
+    var linha = $("<tr>");
+    var colunaUsuario = $("<td>").text(usuario);
+    var colunaPalavras = $("<td>").text(numPalavras);
+}
