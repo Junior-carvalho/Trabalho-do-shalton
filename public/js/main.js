@@ -46,7 +46,7 @@ function inicializaCronometro() {
         if (tempoRestante < 1) {
             campo.attr("disabled", true);
             clearInterval(cronometroID);
-            
+            finalizaJogo();
             }
 
         }, 1000);
@@ -92,11 +92,24 @@ $("#botao-reiniciar").click(function(){
     var linha = novaLinha(usuario, numPalavras);
     corpoTabela.append(linha);
    }
-   function novaLinha(usuario, numPalavras) {
+   function novaLinha(usuario,palavras) {
     var linha = $("<tr>");
     var colunaUsuario = $("<td>").text(usuario);
-    var colunaPalavras = $("<td>").text(numPalavras);
+    var colunaPalavras = $("<td>").text(palavras);
+    var colunaRemover = $("<td>");
+
+    var link = $("<a>").attr("href","#").addClass("botao-remover");
+    var icone = $("<i>").addClass("small").addClass("materialicons").text("delete");
+    link.append(icone);
+    colunaRemover.append(link);
+
     linha.append(colunaUsuario);
     linha.append(colunaPalavras);
+    linha.append(colunaRemover);
     return linha;
+   }    
+   function finalizaJogo() {
+    campo.attr("disabled", true);
+    campo.toggleClass("campo-desativado");
+    inserePlacar();
    }
