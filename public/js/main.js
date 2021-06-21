@@ -46,6 +46,7 @@ function inicializaCronometro() {
         if (tempoRestante < 1) {
             campo.attr("disabled", true);
             clearInterval(cronometroID);
+            
             }
 
         }, 1000);
@@ -95,5 +96,7 @@ $("#botao-reiniciar").click(function(){
     var linha = $("<tr>");
     var colunaUsuario = $("<td>").text(usuario);
     var colunaPalavras = $("<td>").text(numPalavras);
-
-}
+    linha.append(colunaUsuario);
+    linha.append(colunaPalavras);
+    return linha;
+   }
