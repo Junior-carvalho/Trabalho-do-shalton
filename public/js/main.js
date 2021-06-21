@@ -90,6 +90,7 @@ $("#botao-reiniciar").click(function(){
     var usuario = "Seu-nome";
     var numPalavras = $("#contador-palavras").text();
     var linha = novaLinha(usuario, numPalavras);
+    linha.find(".botao-remover").click(removeLinha);
     corpoTabela.append(linha);
    }
    function novaLinha(usuario,palavras) {
@@ -113,3 +114,7 @@ $("#botao-reiniciar").click(function(){
     campo.toggleClass("campo-desativado");
     inserePlacar();
    }
+   function removeLinha(event) {
+    event.preventDefault();
+    $(this).parent().parent().remove();
+}
